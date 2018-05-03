@@ -6,7 +6,7 @@
 	<title>본격! 게시판 - 게시글 글쓰기</title>
 </head>
 <body>
-	<form action="insert.do">
+	<form action="insert.jsp">
 		<label>제목</label>
 		<input type="text" name="title"> <br>
 		<label>작성자</label>
