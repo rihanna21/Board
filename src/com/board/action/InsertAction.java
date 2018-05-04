@@ -5,6 +5,7 @@ import java.sql.*;
 import javax.servlet.http.*;
 
 import com.board.controller.CommandAction;
+import com.board.dao.BoardDao;
 
 public class InsertAction implements CommandAction {
 
@@ -25,27 +26,7 @@ public class InsertAction implements CommandAction {
 		 
 		if(content == "" ||content == null) out.println("content가 null입니다.");
  */
-		try{
-
-		    String url = "jdbc:postgresql:db_board";  
-		    String usr = "postgres";  
-		    String pwd = "new1234!";
-		    
-		    Class.forName("org.postgresql.Driver");
-		    
-		    Connection conn = DriverManager.getConnection(url, usr, pwd);
-		    
-		    Statement stmt = conn.createStatement();
-		    String sql = "INSERT INTO tb_board" +
-		    			"(writer, title, content, count, regdate)" +
-		    			"VALUES ('" + writer + "', '"+ title +"', '" + content + "', " + 0 + ", CURRENT_TIMESTAMP)";    
-		    stmt.executeUpdate(sql);
-		    conn.close();
-		}catch (Exception e){
-			System.out.println("db 접속에 오류가 있습니다.");
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		}
+		BoardDao.getInstance().insertArticle(title, writer, content);
 		
 		return "list.do";
 	}

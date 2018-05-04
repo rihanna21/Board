@@ -10,7 +10,7 @@
 		<label>제목</label>
 		<input type="text" name="title"> <br>
 		<label>작성자</label>
-		<input type="writer" name="writer"> <br>
+		<input type="text" name="writer"> <br>
 		<label>내용</label>
 		<textarea name="content"/></textarea> <br>
 		<input type="submit" value="확인">
