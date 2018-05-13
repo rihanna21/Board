@@ -12,8 +12,7 @@ public class DeleteAction implements CommandAction{
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		String idx = request.getParameter("idx");
-		
-		BoardDao.getInstance().deleteArticle(idx);		
+		BoardDao.getInstance().deleteArticle(Integer.parseInt(idx));		
 	
 		return"list.do";
 	}

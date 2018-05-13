@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"  "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="BoardManager">
+<!-- 긴 클래스 명에 별칭으로 접근하도록 설정 -->
+	<typeAlias alias="str" type="java.lang.String"/>
+	<typeAlias alias="int" type="java.lang.Integer"/>
+	<typeAlias alias="board" type="com.board.beans.Board"/>
+	
+	<select id="getArticleList" resultClass="board">
+		SELECT idx, writer, title, content, count, regdate FROM tb_board ORDER BY idx desc
+	</select>
+	
+	<insert id="insertArticle" parameterClass="board">
+		INSERT INTO tb_board (writer, title, content, count, regdate) VALUES (#writer#, #title#, #content#, 0, to_char(CURRENT_TIMESTAMP, 'YYYY-MM-DD HH24:MI:SS'))
+	</insert>
+	
+	<delete id="deleteArticle" parameterClass="int">
+		DELETE FROM tb_board WHERE idx = #idx#
+	</delete>
+	
+	<select id="getContentArticle" parameterClass="int" resultClass="board">
+		SELECT idx, writer, title, content, count, regdate FROM tb_board where idx = #idx#
+	</select>
+
+</sqlMap>

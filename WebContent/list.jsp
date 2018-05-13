@@ -14,7 +14,7 @@
 			<th>번호</th>
 			<th>제목</th>
 			<th>작성자</th>
-			<th>날짜</th>
+			<th>등록일시</th>
 			<th>조회수</th>
 		</tr>
 		<c:forEach items="${articleList}" var="article">
@@ -22,7 +22,7 @@
 			<td>${article.idx}</td>
 			<td><a href='content.do?idx=${article.idx}'>${article.title}</a></td>
 			<td>${article.writer}</td>
-			<td>${article.rdate}</td>
+			<td>${article.regdate}</td>
 			<td>${article.count}</td>
 		</tr>
 		</c:forEach>

@@ -2,12 +2,12 @@ package com.board.beans;
 
 public class Board {
 	private int idx;
-	private String title;
 	private String writer;
-	private String rdate;
-	private int count;
+	private String title;
 	private String content;
-	
+	private int count;
+	private String regdate;
+
 	public int getIdx() {
 		return idx;
 	}
@@ -26,11 +26,11 @@ public class Board {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-	public String getRdate() {
-		return rdate;
+	public String getRegdate() {
+		return regdate;
 	}
-	public void setRdate(String rdate) {
-		this.rdate = rdate;
+	public void setRegdate(String regdate) {
+		this.regdate = regdate;
 	}
 	public int getCount() {
 		return count;

@@ -16,7 +16,7 @@
 			<th>작성자</th>
 			<td>${article.writer}</td>
 			<th>날짜</th>
-			<td>${article.rdate}</td>
+			<td>${article.regdate}</td>
 			<th>조회수</th>
 			<td>${article.count}</td>
 		</tr>
