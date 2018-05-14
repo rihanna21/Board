@@ -12,10 +12,10 @@ public class BoardDao extends CommonDao{
 		return _instance;
 	}
 	
-	public ArrayList<Board> getArticleList() throws SQLException {
+	public ArrayList<Board> getArticleList(int page) throws SQLException {
 		
 		ArrayList<Board> articleList = null; //BoardÇü ArrayList ¼±¾ð
-		articleList = (ArrayList<Board>)GetDB().queryForList("getArticleList", null);
+		articleList = (ArrayList<Board>)GetDB().queryForList("getArticleList", null, page, 10);
 	    
 	    return articleList;		
 	}
@@ -40,6 +40,5 @@ public class BoardDao extends CommonDao{
 
 		return article;
 	}
-
 
 }

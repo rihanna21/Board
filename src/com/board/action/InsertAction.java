@@ -14,6 +14,7 @@ public class InsertAction implements CommandAction {
 		String title = request.getParameter("title");
 		String writer = request.getParameter("writer");
 		String content = request.getParameter("content");
+
 /* 
  * write.jsp 에서 javascript로 입력값 유효성 검증 기능 만들 것.
 

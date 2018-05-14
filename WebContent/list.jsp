@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR" %>
 <!DOCTYPE html>
 <html>
@@ -27,6 +29,23 @@
 		</tr>
 		</c:forEach>
 	</table>
+	
+	<c:if test="${page > 0}"> 
+		<a href="list.do?page=${page-10}">이전페이지</a> 
+	</c:if>
+	<c:if test="${page == 0}"> 
+		<a href="#">이전페이지</a> 
+	</c:if>
+
+	<fmt:parseNumber value="${page/10+1 }" type="number"  integerOnly="True" />
+	
+	<c:if test="${fn:length( articleList ) < 10}"> 
+		<a href="#">다음페이지</a>
+	</c:if>
+	<c:if test="${fn:length( articleList ) == 10}"> 
+		<a href="list.do?page=${page+10}">다음페이지</a>
+	</c:if>
+
 	<a href="write.jsp">글쓰기</a>
 </body>
 </html>
