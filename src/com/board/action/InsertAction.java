@@ -14,7 +14,7 @@ public class InsertAction implements CommandAction {
 		String title = request.getParameter("title");
 		String writer = request.getParameter("writer");
 		String content = request.getParameter("content");
-
+		String regip = request.getRemoteAddr();
 /* 
  * write.jsp 에서 javascript로 입력값 유효성 검증 기능 만들 것.
 
@@ -27,7 +27,7 @@ public class InsertAction implements CommandAction {
 		 
 		if(content == "" ||content == null) out.println("content가 null입니다.");
  */
-		BoardDao.getInstance().insertArticle(title, writer, content);
+		BoardDao.getInstance().insertArticle(title, writer, content, regip);
 		
 		return "list.do";
 	}

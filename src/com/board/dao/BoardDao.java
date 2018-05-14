@@ -20,11 +20,12 @@ public class BoardDao extends CommonDao{
 	    return articleList;		
 	}
 
-	public void insertArticle(String title, String writer, String content) throws SQLException {
+	public void insertArticle(String title, String writer, String content, String regip) throws SQLException {
 		Board article = new Board();
 		article.setTitle(title);
 		article.setWriter(writer);
 		article.setContent(content);
+		article.setRegip(regip);
 		
 		GetDB().insert("insertArticle", article);
 
@@ -39,6 +40,10 @@ public class BoardDao extends CommonDao{
 		article = (Board)GetDB().queryForObject("getContentArticle", idx);
 
 		return article;
+	}
+	
+	public void setArticleCount(Board article) throws SQLException{
+		GetDB().update("setArticleCount", article);
 	}
 
 }

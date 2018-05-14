@@ -13,7 +13,7 @@
 	</select>
 	
 	<insert id="insertArticle" parameterClass="board">
-		INSERT INTO tb_board (writer, title, content, count, regdate) VALUES (#writer#, #title#, #content#, 0, to_char(CURRENT_TIMESTAMP, 'YYYY-MM-DD HH24:MI:SS'))
+		INSERT INTO tb_board (writer, title, content, count, regdate, regip) VALUES (#writer#, #title#, #content#, 0, to_char(CURRENT_TIMESTAMP, 'YYYY-MM-DD HH24:MI:SS'), #regip#)
 	</insert>
 	
 	<delete id="deleteArticle" parameterClass="int">
@@ -23,5 +23,9 @@
 	<select id="getContentArticle" parameterClass="int" resultClass="board">
 		SELECT idx, writer, title, content, count, regdate FROM tb_board where idx = #idx#
 	</select>
+	
+	<update id="setArticleCount" parameterClass="board">
+		UPDATE tb_board set count = #count# where idx = #idx#
+	</update>
 
 </sqlMap>
